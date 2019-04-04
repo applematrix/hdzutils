@@ -2,7 +2,7 @@ package com.hdzutils;
 
 import java.util.ArrayList;
 
-public class Main {
+public class PermutationGenerator {
     //从generator中的字符选择出select个字符的排列
     public static ArrayList<String> permutation(String generator, int select) {
         ArrayList<String> result = new ArrayList<>();
