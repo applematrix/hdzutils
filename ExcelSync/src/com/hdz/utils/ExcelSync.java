@@ -11,7 +11,6 @@ import java.util.Scanner;
 public class ExcelSync {
     private String mSourceFile;
     private String mTargetFile;
-    private Filter mFilter;
     private static final String CONFIG = "init.cfg";
     private static final String SEPERATOR = "\\";
 
@@ -33,7 +32,9 @@ public class ExcelSync {
                 int colNum = row.getLastCellNum();
                 for (int j = 0; j <= colNum; j++) {
                     Cell cell = row.getCell(j);
-                    System.out.println(cell.getStringCellValue());
+                    if (cell != null) {
+                        System.out.println(cell.getStringCellValue());
+                    }
                 }
             }
         }
@@ -61,8 +62,6 @@ public class ExcelSync {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
-        System.out.println(System.getProperties());
     }
 
     private Workbook getWorkbook(String filepath) {
@@ -74,10 +73,6 @@ public class ExcelSync {
             e.printStackTrace();
         }
         return null;
-    }
-
-    private static class Filter{
-
     }
 
     public static void main(String[] args) {
